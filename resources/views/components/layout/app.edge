@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    @if ($slots.meta)
+    {{{ await $slots.meta() }}}
+    @endif
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KopiSenja - {{title || "Home"}}</title>
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @stack('dumper')
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    {{-- Your site header --}}
+    @include('partials/header')
+
+
+    {{--@!section('content') --}}
+    {{{ await $slots.main() }}}
+
+
+    {{-- Your site footer --}}
+    @include('partials/footer')
+</body>
+
+</html>

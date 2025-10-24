@@ -1,0 +1,86 @@
+@layout.app(title='Home')
+@slot('meta')
+@vite("resources/css/home.css")
+<meta name="description"
+    content="Kopi Senja - Nikmati kopi terbaik dari biji kopi pilihan Indonesia. Temukan menu kopi kami dan hubungi kami untuk informasi lebih lanjut.">
+@endslot
+@slot('main')
+<section id="home" class="hero">
+    <div class="hero-text">
+        <h1 class="hero-title-top">Nikmatin <span>Kopi Senja</span> Sekarang juga</h1>
+        <p>Dibuat dari biji kopi Indonesia pilihan untuk pengalaman minum kopi terbaik setiap hari</p>
+        <a href="#menu" class="btn">Beli Sekarang</a>
+    </div>
+</section>
+
+<!-- Tentang Kami -->
+<section id="tentang" class="section tentang fore-style">
+    <div class="tentang-container">
+        <div class="tentang-media">
+            <video autoplay muted loop playsinline>
+                <source src="resources/images/video_kopi_senja.mp4" type="video/mp4">
+                Browser Anda tidak mendukung tag video.
+            </video>
+        </div>
+        <div class="tentang-text">
+            <h3>— Tentang <span>Kopi Senja</span></h3>
+            <h2>Kisah Kami</h2>
+            <p>
+                Kopi Senja hadir untuk menemani hari-harimu dengan secangkir kopi terbaik.
+                Kami menggunakan biji kopi pilihan yang diproses dengan
+                Temukan cerita di balik setiap tegukan kopi kami.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Menu -->
+<section id="menu" class="section menu">
+    <h2>Menu Kami</h2>
+    <div class="menu-container">
+        <div class="menu-item">
+            <div class="img-center"><img src="resources/images/Espresso.png" alt="Espresso"></div>
+            <h3>Espresso</h3>
+            <p>Rp 15000</p>
+
+            <form action="/wishlist" method="POST" class="mt-2">
+                {{ csrfField() }}
+                <input type="hidden" name="product_id" value="1" />
+                <input type="hidden" name="product_name" value="Espresso" />
+                <input type="hidden" name="price" value="15000" />
+                <input type="hidden" name="user_email" value="" placeholder="optional email" />
+                <button class="px-3 py-1 bg-indigo-600 text-white rounded">Add to wishlist</button>
+            </form>
+        </div>
+        <div class="menu-item">
+            <div class="img-center"><img src="resources/images/Cappucino.png" alt="Cappuccino"></div>
+            <h3>Cappuccino</h3>
+            <p>Rp 20.000</p>
+        </div>
+        <div class="menu-item">
+            <div class="img-center"><img src="resources/images/Latte.png" alt="Latte"></div>
+            <h3>Latte</h3>
+            <p>Rp 22.000</p>
+        </div>
+    </div>
+</section>
+
+<!-- Kontak -->
+<section id="kontak" class="section kontak">
+    <h2 style="text-align:center; color:#fff; margin-bottom:32px;">Kontak Kami</h2>
+    <div class="contact-cards">
+        <div class="contact-card">
+            <p><span class="icon">📍</span>Alamat: Jl. Kenangan No. 123, Jakarta</p>
+        </div>
+        <div class="contact-card">
+            <p><span class="icon">📞</span>Telepon: 0813-8415-4408</p>
+        </div>
+        <div class="contact-card">
+            <p><span class="icon">📧</span>Email: carealalif01@gmail.com</p>
+        </div>
+    </div>
+</section>
+@endslot
+@end
